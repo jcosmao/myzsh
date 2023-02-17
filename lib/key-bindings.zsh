@@ -113,7 +113,7 @@ bindkey ' ' magic-space                               # [Space] - don't do histo
 # Edit the current command line in $EDITOR
 autoload -U edit-command-line
 zle -N edit-command-line
-bindkey '\C-e\C-e' edit-command-line
+bindkey '\C-x\C-e' edit-command-line
 
 # file rename magick
 bindkey "^[m" copy-prev-shell-word

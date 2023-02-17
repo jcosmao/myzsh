@@ -76,7 +76,7 @@ fi
 
 # automatically load bash completion functions
 autoload -U +X bashcompinit && bashcompinit
-
+autoload -U +X compinit && compinit
 
 # Set LS_COLORS
 [[ -x $(which dircolors) ]] && eval $(dircolors -b $HOME/.dir_colors)
