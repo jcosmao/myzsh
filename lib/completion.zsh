@@ -76,3 +76,10 @@ fi
 
 # automatically load bash completion functions
 autoload -U +X bashcompinit && bashcompinit
+
+
+# Set LS_COLORS
+[[ -x $(which dircolors) ]] && eval $(dircolors -b $HOME/.dir_colors)
+
+# completion color
+zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
