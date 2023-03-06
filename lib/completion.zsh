@@ -82,4 +82,4 @@ autoload -U +X compinit && compinit
 [[ -x $(which dircolors) ]] && eval $(dircolors -b $HOME/.dir_colors)
 
 # completion color
-zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
+zstyle ':completion:*:default' list-colors "${(@s.:.)LS_COLORS}"
