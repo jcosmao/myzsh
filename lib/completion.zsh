@@ -49,7 +49,7 @@ zstyle ':completion:*:*:*:users' ignored-patterns \
         adm amanda apache at avahi avahi-autoipd beaglidx bin cacti canna \
         clamav daemon dbus distcache dnsmasq dovecot fax ftp games gdm \
         gkrellmd gopher hacluster haldaemon halt hsqldb ident junkbust kdm \
-        ldap lp mail mailman mailnull man messagebus  mldonkey mysql nagios \
+        ldap lp mail mailman mailnull man messagebus mldonkey mysql nagios \
         named netdump news nfsnobody nobody nscd ntp nut nx obsrun openvpn \
         operator pcap polkitd postfix postgres privoxy pulse pvm quagga radvd \
         rpc rpcuser rpm rtkit scard shutdown squid sshd statd svn sync tftp \
@@ -74,9 +74,13 @@ if [[ ${COMPLETION_WAITING_DOTS:-false} != false ]]; then
   bindkey -M vicmd "^I" expand-or-complete-with-dots
 fi
 
-# automatically load bash completion functions
-autoload -U +X bashcompinit && bashcompinit
-autoload -U +X compinit && compinit
+autoload -Uz compinit
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+compinit -C
+
+autoload -U +X bashcompinit && bashcompinit -C
 
 # Set LS_COLORS
 [[ -x $(which dircolors) ]] && eval $(dircolors -b $HOME/.dir_colors)
